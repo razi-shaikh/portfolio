@@ -1,6 +1,6 @@
 import ecommerce from "../assets/projects/ecommerce.png";
 import SignInUp from "../assets/projects/SignInUp.png";
-import LMS from "../assets/projects/lms.png";
+import LMS from "../assets/projects/LMS.png";
 import payment from "../assets/projects/payment.png";
 import portfolio from "../assets/projects/portfolio.png";
 
