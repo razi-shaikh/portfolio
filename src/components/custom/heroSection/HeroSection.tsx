@@ -52,6 +52,12 @@ const HeroSection = () => {
               <button
                 type="submit"
                 className="inline-block h-16 px-10 bg-transparent border border-gray-400 text-gray-400 font-medium rounded-lg hover:bg-white/70 hover:text-black hover:font-bold"
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "./RaziResume.pdf"; // Path to your PDF
+                  link.download = "Razi Resume.pdf"; // Name of the downloaded file
+                  link.click();
+                }}
               >
                 Resume
               </button>
