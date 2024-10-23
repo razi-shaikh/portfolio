@@ -2,8 +2,6 @@ import Navbar from "@/components/custom/navbar/Navbar";
 import HeroSection from "@/components/custom/heroSection/HeroSection";
 import About from "@/components/custom/about/About";
 import Technologies from "@/components/custom/technologies/Technologies";
-import Experience from "@/components/custom/experience/Experience";
-import Projects from "@/components/custom/projects/Projects";
 import Contact from "@/components/custom/contact/Contact";
 import PortfolioProject from "@/components/custom/portfolioProject/PortfolioProject";
 import Spline from "@splinetool/react-spline/next";

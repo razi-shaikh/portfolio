@@ -34,7 +34,7 @@ const schema = yup.object().shape({
   message: yup.string().required("Message is required"),
 });
 
-const onSubmit = (data: any) => {
+const onSubmit = (data: FormData) => {
   console.log(data);
 };
 
