@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { HERO_CONTENT } from "@/constants";
-import profilePic from "../../../assets/profilePic2.png";
-import Image from "next/image";
 import RubicCube from "../spline/Spline";
 import { motion } from "framer-motion";
 
