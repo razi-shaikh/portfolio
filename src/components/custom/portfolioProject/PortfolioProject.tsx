@@ -61,14 +61,16 @@ const PortfolioProject = () => {
                 transition={{ duration: 0.5 }}
                 className="space-y-2"
               >
+                <div className=" flex flex-wrap">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500"
+                    className="mr-2 mb-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500"
                   >
                     {tech}
                   </span>
                 ))}
+                </div>
               </motion.div>
               {/* project links */}
               <motion.div

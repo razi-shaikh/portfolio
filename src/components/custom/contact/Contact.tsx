@@ -4,6 +4,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 // const Contact = () => {
 //   return (
@@ -34,8 +36,31 @@ const schema = yup.object().shape({
   message: yup.string().required("Message is required"),
 });
 
-const onSubmit = (data: FormData) => {
-  console.log(data);
+const onSubmit = async (data: FormData) => {
+  const formObject = {
+    email: data.email,
+    subject: data.subject,
+    message: data.message,
+  };
+
+  try {
+    const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID as string;
+    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID as string;
+    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY as string;
+    
+    const response = await emailjs.send(
+      serviceId,
+      templateId,
+      formObject,
+      publicKey
+    );
+    if (response.status === 200) {
+      toast.success("Email sent successfully");
+    }
+  } catch (error) {
+    // console.error("Error sending email:", error);
+    toast.error("Error sending email. Please try again later.");
+  }
 };
 
 const Contact = () => {
