@@ -1,11 +1,12 @@
 "use client";
 import { CONTACT } from "@/constants";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import { IoIosSend } from "react-icons/io";
 
 // const Contact = () => {
 //   return (
@@ -36,33 +37,6 @@ const schema = yup.object().shape({
   message: yup.string().required("Message is required"),
 });
 
-const onSubmit = async (data: FormData) => {
-  const formObject = {
-    email: data.email,
-    subject: data.subject,
-    message: data.message,
-  };
-
-  try {
-    const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID as string;
-    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID as string;
-    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY as string;
-    
-    const response = await emailjs.send(
-      serviceId,
-      templateId,
-      formObject,
-      publicKey
-    );
-    if (response.status === 200) {
-      toast.success("Email sent successfully");
-    }
-  } catch (error) {
-    // console.error("Error sending email:", error);
-    toast.error("Error sending email. Please try again later.");
-  }
-};
-
 const Contact = () => {
   const {
     register,
@@ -71,6 +45,36 @@ const Contact = () => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
+  const [isSending, setIsSending] = useState(false);
+
+  const onSubmit = async (data: FormData) => {
+    const formObject = {
+      email: data.email,
+      subject: data.subject,
+      message: data.message,
+    };
+
+    try {
+      const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID as string;
+      const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID as string;
+      const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY as string;
+      setIsSending(true);
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        formObject,
+        publicKey
+      );
+      if (response.status === 200) {
+        toast.success("Email sent successfully");
+        setIsSending(false);
+      }
+    } catch (error) {
+      // console.error("Error sending email:", error);
+      toast.error("Error sending email. Please try again later.");
+      setIsSending(false);
+    }
+  };
 
   return (
     <div className="py-16 max-w-[1200px] mx-auto">
@@ -161,7 +165,7 @@ const Contact = () => {
         {/* message */}
         <div className="w-full md:w-[48%] mt-6 md:mt-0">
           <label
-            htmlFor=""
+            htmlFor="message"
             className="block text-sm font-medium text-gray-400 mb-2"
           >
             Message <span className="text-red-500 text-sm font-medium">*</span>
@@ -185,7 +189,7 @@ const Contact = () => {
             type="submit"
             className="inline-block h-16 px-16 bg-transparent border border-gray-400 text-gray-400 font-medium rounded-lg hover:bg-white/70 hover:text-black hover:font-bold"
           >
-            Submit →
+            {isSending ? "Sending..." : "Submit →"}
           </button>
         </div>
       </form>
