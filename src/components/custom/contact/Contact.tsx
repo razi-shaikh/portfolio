@@ -6,7 +6,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
-import { IoIosSend } from "react-icons/io";
 
 // const Contact = () => {
 //   return (

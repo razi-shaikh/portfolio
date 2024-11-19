@@ -6,6 +6,7 @@ import About from "@/components/custom/about/About";
 import Technologies from "@/components/custom/technologies/Technologies";
 import Contact from "@/components/custom/contact/Contact";
 import PortfolioProject from "@/components/custom/portfolioProject/PortfolioProject";
+// import Experience from '@/components/custom/experience/Experience';
 
 export default function Home() {
   return (
