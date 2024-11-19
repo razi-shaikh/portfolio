@@ -69,7 +69,7 @@ const Contact = () => {
         setIsSending(false);
       }
     } catch (error) {
-      // console.error("Error sending email:", error);
+      console.error("Error sending email:", error);
       toast.error("Error sending email. Please try again later.");
       setIsSending(false);
     }
