@@ -62,25 +62,36 @@ const PortfolioProject = () => {
                 className="space-y-2"
               >
                 <div className=" flex flex-wrap">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="mr-2 mb-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="mr-2 mb-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
-              {/* project links */}
+
+              {/* project github links */}
               <motion.div
                 whileInView={{ opacity: 1, x: 0 }}
                 initial={{ opacity: 0, x: index % 2 === 1 ? -100 : 100 }}
                 transition={{ duration: 0.5 }}
               >
-                <a href={project.github} className="text-purple-400 underline">
-                  Github
-                </a>
+                {project.live !== "" && (
+                  <a href={project.live} className="text-purple-400 underline">
+                    Live
+                  </a>
+                )}{" "}
+                {project.visibility && (
+                  <a
+                    href={project.github}
+                    className="text-purple-400 underline"
+                  >
+                    Github
+                  </a>
+                )}
               </motion.div>
             </div>
 
