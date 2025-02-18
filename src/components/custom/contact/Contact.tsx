@@ -92,7 +92,7 @@ const Contact = () => {
         {/* address and phone */}
         <div className="text-white/70 mt-12">
           <div>
-            <p className=" text-lg mb-1">Phone No</p>
+            <p className=" text-lg mb-1">Phone and Whatsapp</p>
             <a
               href={CONTACT.phoneNo}
               className="text-2xl font-semibold underline decoration-gray-400 decoration-2 underline-offset-4 hover:decoration-gray-200 transition duration-300"
@@ -102,11 +102,11 @@ const Contact = () => {
           </div>
 
           <div>
-            <p className=" text-lg mb-1">Address</p>
-            <p>Plot - 17, Line - L, Room - 2, Road - 9</p>
-            <p>Baiganwadi, Govandi, Mumbai</p>
+            <p className=" text-lg my-2">Address</p>
+            {/* <p>Plot - 17, Line - L, Room - 2, Road - 9</p> */}
+            <p>Govandi, Mumbai</p>
             <p>Maharashtra, India</p>
-            <p>Pin Code 400043</p>
+            {/* <p>Pin Code 400043</p> */}
           </div>
         </div>
       </div>
