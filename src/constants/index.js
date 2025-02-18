@@ -1,5 +1,5 @@
 import ecommerce from "../assets/projects/ecommerce.png";
-import signInUp from "../assets/projects/signInUp.png";
+import signInUp from "../assets/projects/SignInUp.png";
 // import LMS from "../assets/projects/LMS.png";
 // import payment from "../assets/projects/payment.png";
 import portfolio from "../assets/projects/portfolio.png";
